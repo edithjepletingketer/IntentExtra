@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
 EditText etName;
 EditText etAge;
 Button btnSend;
-String text;
-String Age;
+
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,35 +26,24 @@ String Age;
         setSupportActionBar(toolbar);
 
 
-    etName = findViewById(R.id.etName);
-    etAge = findViewById(R.id.etAge);
+
     btnSend = findViewById(R.id.btnSend);
 
-
-//    final Button send_button= (Button)findViewById(R.id.btnSend);
-//    final EditText send_text = (EditText) findViewById(R.id.etName);
-
-
-
-    Button mButton = (Button)findViewById(R.id.btnSend);
-    mButton.setOnClickListener(new View.OnClickListener() {
+    btnSend.setOnClickListener(new View.OnClickListener() {
         @Override
-        public void onClick(View view) {
-            String str = etName.getText().toString();
-
-
-
-            String text = etName.getText().toString();
+        public void onClick(View v) {
+            etName = findViewById(R.id.etName);
+            etAge = findViewById(R.id.etAge);
+            Intent intent = new Intent(getBaseContext(),ReceiverActivity.class);
+            String name = etName.getText().toString();
             String age = etAge.getText().toString();
-            Intent myIntent = new Intent(view.getContext(),ReceiverActivity.class);
-            myIntent.putExtra("mytext",text);
-            startActivity(myIntent);
-
-
-
-
+            intent.putExtra("etName",name);
+            intent.putExtra("etAge",age);
+            startActivity(intent);
         }
     });
+
+
 
 
 

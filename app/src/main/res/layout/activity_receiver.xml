@@ -31,14 +31,14 @@
     >
 
     <TextView
-        android:id="@+id/tvname"
+        android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:hint="name"/>
 
     <TextView
-        android:id="@+id/tvage"
+        android:id="@+id/tvAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"

@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 
 public class ReceiverActivity extends AppCompatActivity {
-TextView textname;
-TextView textage;
+TextView tvName;
+TextView tvAge;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,13 +19,19 @@ TextView textage;
         setSupportActionBar(toolbar);
 
 
-        String text= getIntent().getStringExtra("mytext");
-       textname =(TextView)findViewById(R.id.tvname);
-        textname.setText(text);
 
-        String age= getIntent().getStringExtra("myage");
-        textage= (TextView)findViewById(R.id.tvage);
-        textage.setText(age);
+       tvName = findViewById(R.id.tvName);
+       tvAge= findViewById(R.id.tvAge);
+       Bundle extras = getIntent().getExtras();
+
+       if (extras!=null){
+           String name = extras.getString("etName");
+           String age = extras.getString("etAge");
+           tvName.setText(name);
+           tvAge.setText(age);
+       }
+
+
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
